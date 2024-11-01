@@ -123,8 +123,8 @@ Cú pháp: ...
 // const mergedArr = [...arr, 0, 299, ...newArr];
 
 // console.log(mergedArr);
-const arrName = ["Hung", "Dat"];
-console.log(typeof(arrName));
+// let arrName = ["Hung", "Dat"];
+// const flatName = ...arrName;
 
 // const mindx_class = { name: 'CIJS-101', teacher: ...arrName, studentNo: 27};
 // console.log(mindx_class);
@@ -152,8 +152,7 @@ Cú pháp: ...
 
 // console.log(sum(24, 4, 6, 8, 10, 20, 30));
 
-const person = {name: "MindX", age: 7}
-console.log(typeof(person));
+// const person = {name: "MindX", age: 7}
 // const {name, age} = person;
 
 // console.log(name, age);
@@ -175,7 +174,7 @@ const str = "Hello world";
 const keyword = "world";
 
 const keywordExist = (str, keyword) => str.indexOf(keyword) > -1 ? true : false;
-console.log(typeof(keywordExist));
+
 console.log(keywordExist(str, keyword));
 
 /*
