@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Select = () => {
+const Select = (props) => {
   return (
     <select>
-      <option>Trạng thái</option>
-      <option>Trạng thái 1</option>
-      <option>Trạng thái 2</option>
-
+      <option value="-1">{props.text}</option>
+      {props.options ? props.options.map( option => (
+        <option value={option.value} >{option.label}</option>
+      )) : ''}
     </select>
   )
 }
