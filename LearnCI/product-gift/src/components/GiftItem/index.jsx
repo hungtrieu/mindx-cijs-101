@@ -6,9 +6,9 @@ const GiftItem = (props) => {
   const { item } = props;
 
   const giftItemClick = () => {
-    let modal = document.getElementById("myModal");
-    document.getElementById('myModalContent').innerText = item.name + ', ' + item.price;
-    modal.style.display = "block";
+    // let modal = document.getElementById("myModal");
+    // document.getElementById('myModalContent').innerText = item.name + ', ' + item.price;
+    // modal.style.display = "block";
   }
 
   return (
