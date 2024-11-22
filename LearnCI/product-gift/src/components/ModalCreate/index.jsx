@@ -3,7 +3,7 @@ import Close from '../../icons/Close';
 import './style.css';
 
 const ModalCreate = (props) => {
-    const {newGift, setNewGift }  = props;
+    const {newGift, setNewGift, setGifts }  = props;
 
     const handleChange = (e) => {
         const elmentName = e.target.name;
@@ -17,6 +17,7 @@ const ModalCreate = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setGifts();
         console.log(newGift);
         props.onClose();
     }

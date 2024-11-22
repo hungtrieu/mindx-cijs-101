@@ -6,11 +6,18 @@ import Close from '../../icons/Close';
 import './style.css';
 
 const Modal = (props) => {
-    const {currentGift} = props;
+    const {currentGift, setGift} = props;
     const [comment, setComment ] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        currentGift.notes = currentGift.notes ? 
+            [...currentGift.notes, comment]
+            : [comment];
+
+        setGift(currentGift);
+
         console.log(currentGift.name, comment);
     }
 
@@ -59,6 +66,9 @@ const Modal = (props) => {
                 (description)
             </div>
             <div className="comment row">
+                {currentGift.notes && currentGift.notes.map( comment => {
+                    return <p>{comment}</p>
+                })}
                 <form onSubmit={(event) => handleSubmit(event)}>
                     <textarea value={comment} onChange={ (e) => setComment(e.target.value)}></textarea>
                     <button>Comment</button>
