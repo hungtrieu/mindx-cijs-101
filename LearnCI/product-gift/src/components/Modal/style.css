@@ -26,6 +26,10 @@ div.modal {
     gap: 32px;
   }
 
+  div.modal div.modalContent div.row.control{
+    justify-content: flex-end;
+  }
+
   div.modal div.modalContent div.image img {
     width: 350px;
   }
@@ -43,4 +47,58 @@ div.modal {
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  div.modalContent div.information .irow {
+    margin-bottom: 34px;
+  }
+
+  div.modalContent div.information h2.name {
+    font-size: 28px;
+    font-weight: normal;
+  }
+  div.information div.classified div.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  div.information div.classified div.buttons button{
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #cdcdcd;
+  }
+
+  div.information div.addToCart {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  div.information div.addToCart div.amount button{
+    background-color: #FF4D00;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #cdcdcd;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  div.information div.addToCart div.amount input {
+    width: 40px;
+    text-align: center;
+    border: none;
+  }
+
+  div.information div.addToCart button.buy{
+    background-color: #FF4D00;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #cdcdcd;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  div.modalContent div.description {
+    margin: 46px 0;
   }
