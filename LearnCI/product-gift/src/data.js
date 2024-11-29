@@ -8,7 +8,7 @@ const giftsList = [
         discount: "-99%",
         status: 1,
         type: "",
-        category: "Danh mục 1",
+        category: "Danh mục 3",
         description: "",
         addDate: "2024-11-08"
     },
@@ -21,7 +21,7 @@ const giftsList = [
         discount: "-99%",
         status: 1,
         type: "hũ",
-        category: "Danh mục 1",
+        category: "Danh mục 3",
         description: "",
         addDate: "2024-11-08"
     },
@@ -47,7 +47,7 @@ const giftsList = [
         discount: "-99%",
         status: 1,
         type: "hũ",
-        category: "Danh mục 1",
+        category: "Danh mục 2",
         description: "",
         addDate: "2024-11-08"
     },
@@ -73,7 +73,7 @@ const giftsList = [
         discount: "-99%",
         status: 1,
         type: "hộp",
-        category: "Danh mục 1",
+        category: "Danh mục 2",
         description: "",
         addDate: "2024-11-08"
     },
@@ -86,7 +86,7 @@ const giftsList = [
         discount: "-99%",
         status: 1,
         type: "",
-        category: "Danh mục 1",
+        category: "Danh mục 3",
         description: "",
         addDate: "2024-11-22"
     },

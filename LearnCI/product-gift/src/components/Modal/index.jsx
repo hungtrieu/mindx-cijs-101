@@ -6,7 +6,7 @@ import Close from '../../icons/Close';
 import './style.css';
 
 const Modal = (props) => {
-    const {currentGift, setGift} = props;
+    const {currentGift, setGift, deleteGift} = props;
     const [comment, setComment ] = useState('');
 
     const handleSubmit = (e) => {
@@ -21,10 +21,16 @@ const Modal = (props) => {
         console.log(currentGift.name, comment);
     }
 
+    const handleDelete = () => {
+        deleteGift(currentGift.id);
+        props.onClose();
+    }
+
   return (
     <div id="myModal" className="modal">
         <div className="modalContent">
             <div className="row control">
+                <button onClick={handleDelete}>Delete</button>
                 <Close onClick={props.onClose} />
             </div>
           

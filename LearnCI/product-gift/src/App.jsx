@@ -60,11 +60,14 @@ function App() {
   - Tạo context, cung cấp toàn bộ dữ liệu của product
   - Khởi tạo provider
   - Dùng useContext để lấy dữ liệu product
+
+  Bài 9 - Câu 1 phần 2:
+- Thêm nút xoá trong modal
+- Khi click thì dùng hàm filter để loại chính sản phẩm đang xem khỏi store.gifts
+- Dùng store.setGifts để cập nhật lại 
   */
 
   const store = useContext(Store);
-
-  console.log(store);
 
   return (
     <div className="container">
@@ -97,7 +100,13 @@ function App() {
 
             localStorage.setItem("gifts", JSON.stringify(updatedGifts));
 
-            setGifts([...updatedGifts])
+            store.setGifts([...updatedGifts])
+          }}
+          deleteGift={ (giftId) => {
+            const updatedGifts = store.gifts.filter( item => item.id !== giftId);
+
+            localStorage.setItem("gifts", JSON.stringify(updatedGifts));
+            store.setGifts([...updatedGifts]);
           }}
           onClose={ () => handleOpenModal(false) } 
       />}
@@ -110,9 +119,9 @@ function App() {
               }
             );
 
-            localStorage.setItem("gifts", JSON.stringify(gifts));
+            localStorage.setItem("gifts", JSON.stringify(store.gifts));
 
-            setGifts([...gifts])
+            store.setGifts([...store.gifts])
           }}
           newGift={newGift} 
           setNewGift={setNewGift} 
