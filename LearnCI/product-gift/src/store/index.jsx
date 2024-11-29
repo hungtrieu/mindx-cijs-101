@@ -4,7 +4,11 @@ import giftsList from '../data'
 
 export const Store = createContext({
     gifts: [],
-    setGifts(newGifts) {}
+    setGifts(newGifts) {},
+    filterByCategory: -1,
+    setFilterByCategory(newCategory) {},
+    filterBySearch: '',
+    setFilterBySearch(newSearch) {}
 });
 
 const StoreProvider = (props) => {
@@ -14,7 +18,19 @@ const StoreProvider = (props) => {
       giftsList;
     return currentGifts;
   });
-  return <Store.Provider value={{gifts, setGifts}}>
+
+  const [filterByCategory, setFilterByCategory] = useState(-1);
+
+  const [filterBySearch, setFilterBySearch] = useState('');
+
+  return <Store.Provider value={{
+      gifts, 
+      setGifts,
+      filterByCategory,
+      setFilterByCategory,
+      filterBySearch,
+      setFilterBySearch
+    }}>
     {props.children}
   </Store.Provider>
 }

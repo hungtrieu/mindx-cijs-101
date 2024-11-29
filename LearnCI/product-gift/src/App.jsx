@@ -68,6 +68,7 @@ function App() {
   */
 
   const store = useContext(Store);
+  console.log(store.filterByCategory);
 
   return (
     <div className="container">
@@ -81,7 +82,16 @@ function App() {
         <div className="contentGifts">
           {store.gifts.sort( (a, b) => {
             return new Date(b.addDate).getTime() - new Date(a.addDate).getTime();
-          }).slice(0, 8).map( (gift, index) => {
+          })
+          .filter( gift => {
+            return store.filterByCategory == -1 ? true :
+              gift.category === store.filterByCategory;
+          })
+          .filter( gift  => {
+            return store.filterBySearch === '' ? true :
+            gift.name.includes(store.filterBySearch)
+          })
+          .slice(0, 8).map( (gift, index) => {
             return <div className={`div${index + 1}`} 
                 onClick={ () => handleOpenModal(true, gift) }>
                 <GiftItem item={gift} />
