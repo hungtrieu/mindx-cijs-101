@@ -1,14 +1,13 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import LikeNow from './components/LikeNow'
 import Filter from './components/Filter'
 import GiftItem from './components/GiftItem'
 import Pagination from './components/Pagination'
 import Modal from './components/Modal'
 import ModalCreate from './components/ModalCreate'
-import giftsList from './data';
+import {Store} from './store/index';
 
 import './App.css'
-
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
@@ -54,16 +53,18 @@ function App() {
   - Lưu ý: Cần kiểm tra, nếu đã có 'notes' thì bổ sung comment là phần tử mới của mảng notes
   - kỳ vọng:
       currentGift.notes = ["Good", "Okay", "Not good"]
+
+
+  Bài 9:
+  Câu 1 phần 1:
+  - Tạo context, cung cấp toàn bộ dữ liệu của product
+  - Khởi tạo provider
+  - Dùng useContext để lấy dữ liệu product
   */
 
-  const [gifts, setGifts] = useState( () => {
-    const currentGifts = localStorage.getItem("gifts") ?
-      JSON.parse(localStorage.getItem("gifts")) : 
-      giftsList;
-    return currentGifts;
-  });
+  const store = useContext(Store);
 
-  console.log(gifts);
+  console.log(store);
 
   return (
     <div className="container">
@@ -75,7 +76,7 @@ function App() {
           <button onClick={ () => handleOpenModalCreate(true) }>Tạo</button>
         </div>
         <div className="contentGifts">
-          {gifts.sort( (a, b) => {
+          {store.gifts.sort( (a, b) => {
             return new Date(b.addDate).getTime() - new Date(a.addDate).getTime();
           }).slice(0, 8).map( (gift, index) => {
             return <div className={`div${index + 1}`} 
@@ -90,7 +91,7 @@ function App() {
       { openModal && <Modal 
           currentGift={selectedGift} 
           setGift={ (gift) => {
-            const updatedGifts = gifts.map( item => {
+            const updatedGifts = store.gifts.map( item => {
               return (item.id === gift.id) ? gift : item
             });
 
@@ -102,9 +103,9 @@ function App() {
       />}
       { openModalCreate && <ModalCreate 
           setGifts={ () => {
-            gifts.push(
+            store.gifts.push(
               {...newGift,
-                id: gifts.length + 1,
+                id: store.gifts.length + 1,
                 addDate: new Date()
               }
             );

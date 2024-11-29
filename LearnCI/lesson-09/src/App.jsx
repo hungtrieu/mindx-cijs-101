@@ -4,20 +4,19 @@ import viteLogo from '/vite.svg'
 import Store from './context';
 import Header from './Header';
 import Footer from './Footer';
-import StoreProvider from './StoreProvider';
+
 import { DictionariesProvider } from './StoreProvider';
 
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const store1 = useContext(Store);
+  const store = useContext(Store);
 
 /* Tạo tính năng đổi theme cho toàn bộ ứng dụng
 Có thể đổi ngôn ngữ tiếng Anh, Việt cho ứng dụng */
 
   return (
-    <StoreProvider>
       <DictionariesProvider>
       <>
       <Header />
@@ -29,7 +28,7 @@ Có thể đổi ngôn ngữ tiếng Anh, Việt cho ứng dụng */
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Lesson 09</h1>
+      <h1>Lesson 09 {store.theme}</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -44,7 +43,6 @@ Có thể đổi ngôn ngữ tiếng Anh, Việt cho ứng dụng */
       <Footer />
     </>
     </DictionariesProvider>
-    </StoreProvider>
   )
 }
 
